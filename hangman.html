@@ -10,7 +10,7 @@ Press a letter to start playing. Becareful you only have some many guesses.
 <p> Wins </p>
 <p>Losses</p>
 
-<input type="text" id="anykey" onkeyup="myFunction()">
+
 
 <div id="blocks"></div>
 <script type="text/javascript">
@@ -23,19 +23,25 @@ Press a letter to start playing. Becareful you only have some many guesses.
         //Random word is chosen by computer
 var answerBlocks = [];
 
-              var myCartoons=[ "thunder cats", "smurfs", "spongebob", "flintstones", "jetsons", "batman", "justice league", "paw patrol", "vampirina", "simpsons", "family guy", "futurama", "ed-edd-eddy", "catdog", "my little pony" ];
+              var myCartoons=[ "thunder cats", "smurfs", "spongebob", "flintstones", "jetsons", "batman", "justice league", "paw patrol", "vampirina", "simpsons", "family guy", "futurama", "ed edd eddy", "catdog", "my little pony" ];
 
               ChoosemyCartoons();
               
             function ChoosemyCartoons(){
               var index = Math.floor(Math.random()*myCartoons.length);
-              
-              document.getElementById("indextest").innerHTML = myCartoons[index];
+              var word = myCartoons[index];
+              document.getElementById("indextest").innerHTML = word;
               //var answerBlocks = [];
             for (var i =0; i<=myCartoons[index].length -1; i++){
                // answerBlocks[i] = "";
+               if(myCartoons[index][i] == ' '){
+                   answerBlocks += "&nbsp&nbsp&nbsp"
+               }
+               else{
                answerBlocks += "__ ";
+               }
                document.getElementById("blocks").innerHTML = answerBlocks;
+               
             }
             //var lettersLeft = word.length;
 
