@@ -9,10 +9,11 @@
 Press a letter to start playing. Becareful you only have some many guesses.
 <p> Wins </p>
 <p>Losses</p>
-
+<input type="text" id="anykey" onkeyup="checkAnswer()">
 
 
 <div id="blocks"></div>
+<div id="divletter"></div>
 <script type="text/javascript">
         
 
@@ -21,7 +22,9 @@ Press a letter to start playing. Becareful you only have some many guesses.
  
         
         //Random word is chosen by computer
-var answerBlocks = [];
+            var answerBlocks = [];
+
+            var word;
 
               var myCartoons=[ "thunder cats", "smurfs", "spongebob", "flintstones", "jetsons", "batman", "justice league", "paw patrol", "vampirina", "simpsons", "family guy", "futurama", "ed edd eddy", "catdog", "my little pony" ];
 
@@ -29,7 +32,7 @@ var answerBlocks = [];
               
             function ChoosemyCartoons(){
               var index = Math.floor(Math.random()*myCartoons.length);
-              var word = myCartoons[index];
+              word = myCartoons[index];
               document.getElementById("indextest").innerHTML = word;
               //var answerBlocks = [];
             for (var i =0; i<=myCartoons[index].length -1; i++){
@@ -40,7 +43,7 @@ var answerBlocks = [];
                else{
                answerBlocks += "__ ";
                }
-               document.getElementById("blocks").innerHTML = answerBlocks;
+               //document.getElementById("blocks").innerHTML = answerBlocks;
                
             }
             //var lettersLeft = word.length;
@@ -48,6 +51,21 @@ var answerBlocks = [];
 
                               //Player picks a letter to start playing//
             //var playerPick= ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,z"];
+        }
+
+        function checkAnswer(letter = document.getElementById("anykey").value){
+            //document.getElementById("divletter").innerHTML = word;
+            for (var i =0; i<=word.length - 1; i++){
+                if(word[i] == letter){
+                    
+                    //document.getElementById("divletter").innerHTML = letter;
+                    answerBlocks[i] = letter;   
+
+                }
+                
+                
+            }
+            document.getElementById("blocks").innerHTML = answerBlocks; 
         }
                 
 
