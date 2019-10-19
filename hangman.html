@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cartoon Hangman Game</title>
+    </head>
+    <div id="indextest"></div>
+</html>
+<h1>Guess the Cartoon</h1>
+Press a letter to start playing. Becareful you only have some many guesses.
+<p> Wins </p>
+<p>Losses</p>
+
+<input type="text" id="anykey" onkeyup="myFunction()">
+
+<div id="blocks"></div>
+<script type="text/javascript">
+        
+
+        //Show the players progress//
+        //Player gets 20 guess will need count//
+ 
+        
+        //Random word is chosen by computer
+var answerBlocks = [];
+
+              var myCartoons=[ "thunder cats", "smurfs", "spongebob", "flintstones", "jetsons", "batman", "justice league", "paw patrol", "vampirina", "simpsons", "family guy", "futurama", "ed-edd-eddy", "catdog", "my little pony" ];
+
+              ChoosemyCartoons();
+              
+            function ChoosemyCartoons(){
+              var index = Math.floor(Math.random()*myCartoons.length);
+              
+              document.getElementById("indextest").innerHTML = myCartoons[index];
+              //var answerBlocks = [];
+            for (var i =0; i<=myCartoons[index].length -1; i++){
+               // answerBlocks[i] = "";
+               answerBlocks += "__ ";
+               document.getElementById("blocks").innerHTML = answerBlocks;
+            }
+            //var lettersLeft = word.length;
+
+
+                              //Player picks a letter to start playing//
+            //var playerPick= ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,z"];
+        }
+                
+
+
+
+            
+        //Keep count of wins and losses//
+        </script>
